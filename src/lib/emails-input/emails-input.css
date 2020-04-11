@@ -1,0 +1,73 @@
+.ei-email-editor-container {
+  display: flex;
+  flex: auto;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  overflow: auto;
+  border: 1px solid #c3c2cf;
+  background: #ffffff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 7px 8px 7px;
+  font-family: "Open Sans";
+}
+
+.ei-email-editor-container > div {
+  margin-right: 8px;
+}
+
+.ei-email-editor-container > input {
+  flex: auto;
+  margin-top: -1px;
+}
+
+.ei-input {
+  height: 24px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+
+.ei-input::placeholder {
+  color: #c3c2cf;
+  font-size: 14px;
+}
+
+.ei-email-wrapper {
+  margin-bottom: 4px;
+  color: #050038;
+  font-size: 14px;
+  line-height: 24px;
+  height: 24px;
+  box-sizing: border-box;
+}
+
+.ei-email-wrapper_invalid {
+  border-bottom: 1px dashed #d92929;
+}
+
+.ei-email-wrapper_valid {
+  background-color: rgba(102, 153, 255, 0.2);
+  border-radius: 100px;
+  padding: 0px 8px 0px 10px;
+}
+
+.ei-email-wrapper span {
+  margin-right: 8px;
+}
+
+.ei-button {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+.ei-button-remove {
+  width: 8px;
+  height: 8px;
+  background-image: url("img/remove.svg");
+}

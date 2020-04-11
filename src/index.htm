@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Тестовое задание</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="lib/emails-input/emails-input.css" rel="stylesheet" />
+    <script src="lib/emails-input/emails-input.js"></script>
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="email-form">
+        <div class="email-form__header">
+          Share&nbsp;<b>Board name</b>&nbsp;with others
+        </div>
+
+        <div class="email-form__body">
+          <div id="emails-input-1"></div>
+        </div>
+
+        <div class="email-form__footer">
+          <button class="button">Add email</button>
+          <button class="button">Get emails count</button>
+          <div></div>
+        </div>
+        <div class="aaa"></div>
+      </div>
+
+      <div class="email-form">
+        <div class="email-form__header">
+          Share&nbsp;<b>Board name</b>&nbsp;with others
+        </div>
+
+        <div class="email-form__body">
+          <div id="emails-input-2"></div>
+        </div>
+
+        <div class="email-form__footer">
+          <button class="button">Add email</button>
+          <button class="button">Get emails count</button>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h2>Example</h2>
+      <img src="assets/img/Frame 2.svg" title="Пример" />
+    </div>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var emailsInput1 = document.getElementById("emails-input-1").emailsInput({
+      emails: [
+        "john@miro.com",
+        "invalid.email",
+        "mike@miro.com",
+        "alexander@miro.com",
+      ],
+    });
+
+    console.log(emailsInput1.getEmails());
+
+    var emailsInput2 = document.getElementById("emails-input-2").emailsInput({
+      emails: ["a@miro.com", "b.email", "c@miro.com"],
+    });
+  });
+</script>
