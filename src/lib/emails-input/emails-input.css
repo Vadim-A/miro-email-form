@@ -10,6 +10,7 @@
   border-radius: 4px;
   padding: 8px 7px 8px 7px;
   font-family: "Open Sans";
+  cursor: text;
 }
 
 .ei-email-editor-container > div {
