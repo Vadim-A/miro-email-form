@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "test",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/Vadim-A/miro-email-form/issues"
   },
-  "homepage": "https://github.com/Vadim-A/miro-email-form#readme"
+  "homepage": "https://github.com/Vadim-A/miro-email-form#readme",
+  "devDependencies": {
+    "jest": "^25.3.0"
+  }
 }
