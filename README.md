@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ### Arguments
 
-- `emails` `Array` initial collection of emails
-- `emailsChange` `Function` called when emails collection is changed
+- `emails` - `Array` initial collection of emails
+- `emailsChange` - `Function` called when emails collection is changed
 
 ### API
 
