@@ -14,7 +14,7 @@ Emails-Input use Open Sans fonts, that you must to include into your project for
 
 ## Installation
 
-For install library you need to download (emails-input folder from repository)[https://github.com/Vadim-A/miro-email-form/tree/master/src/lib] and copy in your project. Then add JavaScript and CSS Files to your HTML document:
+For install library you need to download [(emails-input folder from repository)https://github.com/Vadim-A/miro-email-form/tree/master/src/lib] and copy in your project. Then add JavaScript and CSS Files to your HTML document:
 
 ```HTML
   ...
