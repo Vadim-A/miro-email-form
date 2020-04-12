@@ -160,7 +160,6 @@
     container.appendChild(emailInput);
     this.appendChild(container);
 
-    // note: при клике на ei-email-editor-container, но вне input срабатывает focusout и формируется email. удобная фича :)
     this.addEventListener("click", function (event) {
       emailInput.focus();
     });
