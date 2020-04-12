@@ -10,7 +10,7 @@
 
   <body>
     <div class="content">
-      <div class="email-form">
+      <div class="email-form" id="email-form-1">
         <div class="email-form__header">
           Share&nbsp;<b>Board name</b>&nbsp;with others
         </div>
@@ -20,14 +20,12 @@
         </div>
 
         <div class="email-form__footer">
-          <button class="button">Add email</button>
-          <button class="button">Get emails count</button>
-          <div></div>
+          <button class="button" id="button-add-1">Add email</button>
+          <button class="button" id="button-count-1">Get emails count</button>
         </div>
-        <div class="aaa"></div>
       </div>
 
-      <div class="email-form">
+      <div class="email-form" id="email-form-2">
         <div class="email-form__header">
           Share&nbsp;<b>Board name</b>&nbsp;with others
         </div>
@@ -37,35 +35,58 @@
         </div>
 
         <div class="email-form__footer">
-          <button class="button">Add email</button>
-          <button class="button">Get emails count</button>
-          <div></div>
+          <button class="button" id="button-add-2">Add email</button>
+          <button class="button" id="button-count-2">Get emails count</button>
         </div>
       </div>
     </div>
 
-    <div class="example">
+    <!-- <div class="example">
       <h2>Example</h2>
       <img src="assets/img/Frame 2.svg" title="Пример" />
-    </div>
+    </div> -->
   </body>
 </html>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var emailsInput1 = document.getElementById("emails-input-1").emailsInput({
+    const emailsInput1 = document.getElementById("emails-input-1").emailsInput({
       emails: [
         "john@miro.com",
         "invalid.email",
         "mike@miro.com",
         "alexander@miro.com",
       ],
+      onEmailsChange: function (event) {
+        console.log("emailsInput1: " + event.join(", "));
+      },
     });
 
-    console.log(emailsInput1.getEmails());
-
-    var emailsInput2 = document.getElementById("emails-input-2").emailsInput({
+    const emailsInput2 = document.getElementById("emails-input-2").emailsInput({
       emails: ["a@miro.com", "b.email", "c@miro.com"],
+      onEmailsChange: function (event) {
+        console.log("emailsInput2: " + event.join(", "));
+      },
     });
+
+    document.getElementById("button-count-1").onclick = function () {
+      alert(emailsInput1.getEmails().length);
+    };
+
+    document.getElementById("button-count-2").onclick = function () {
+      alert(emailsInput2.getEmails().length);
+    };
+
+    document.getElementById("button-add-1").onclick = function () {
+      emailsInput1.addEmail(
+        "email" + Math.round(Math.random() * 10000) + "@mail.ru"
+      );
+    };
+
+    document.getElementById("button-add-2").onclick = function () {
+      emailsInput2.addEmail(
+        "email" + Math.round(Math.random() * 10000) + "@mail.ru"
+      );
+    };
   });
 </script>

@@ -10,6 +10,7 @@
   border-radius: 4px;
   padding: 8px 7px 8px 7px;
   font-family: "Open Sans";
+  cursor: text;
 }
 
 .ei-email-editor-container > div {
@@ -35,7 +36,13 @@
   font-size: 14px;
 }
 
+.ei-input::-ms-clear {
+  display: none;
+}
+
 .ei-email-wrapper {
+  display: flex;
+  align-items: center;
   margin-bottom: 4px;
   color: #050038;
   font-size: 14px;
@@ -56,6 +63,10 @@
 
 .ei-email-wrapper span {
   margin-right: 8px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 100%;
+  max-width: 150px;
 }
 
 .ei-button {
