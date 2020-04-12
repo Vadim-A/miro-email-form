@@ -57,14 +57,14 @@
         "mike@miro.com",
         "alexander@miro.com",
       ],
-      onEmailsChange: function (event) {
+      emailsChange: function (event) {
         console.log("emailsInput1: " + event.join(", "));
       },
     });
 
     const emailsInput2 = document.getElementById("emails-input-2").emailsInput({
       emails: ["a@miro.com", "b.email", "c@miro.com"],
-      onEmailsChange: function (event) {
+      emailsChange: function (event) {
         console.log("emailsInput2: " + event.join(", "));
       },
     });

@@ -1,6 +1,8 @@
 (function () {
   const NEW_LINE_CHAR = "\n";
+  const NEW_LINE_KEY = 13;
   const COMMA_CHAR = ",";
+  const COMMA_KEY = 188;
 
   function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -38,7 +40,7 @@
       event.target.parentElement.parentElement.removeChild(
         event.target.parentElement
       );
-      context.onEmailsChange && context.onEmailsChange(context.getEmails());
+      context.emailsChange && context.emailsChange(context.getEmails());
     });
 
     emailWrapper.appendChild(emailContainer);
@@ -60,17 +62,17 @@
   HTMLElement.prototype.emailsInput = function (args) {
     const that = this;
     const emails = args.emails;
-    const onEmailsChange = args.onEmailsChange;
+    const emailsChange = args.emailsChange;
 
     if (this.tagName !== "DIV") {
       throw "emailsInput can be apply only to DIV element!";
     }
 
-    if (onEmailsChange && typeof onEmailsChange !== "function") {
-      throw "onEmailsChange must be a function!";
+    if (emailsChange && typeof emailsChange !== "function") {
+      throw "emailsChange must be a function!";
     }
 
-    this.onEmailsChange = onEmailsChange;
+    this.emailsChange = emailsChange;
 
     this.getEmails = function () {
       return getEmails(that);
@@ -81,12 +83,12 @@
       emails.forEach(function (email) {
         addEmail(email, that);
       });
-      that.onEmailsChange && that.onEmailsChange(that.getEmails());
+      that.emailsChange && that.emailsChange(that.getEmails());
     };
 
     this.addEmail = function (email) {
       addEmail(email, that);
-      that.onEmailsChange && that.onEmailsChange(that.getEmails());
+      that.emailsChange && that.emailsChange(that.getEmails());
     };
 
     this.innerText = "";
@@ -122,7 +124,7 @@
         emails.forEach(function (email) {
           addEmail(email, that);
         });
-        that.onEmailsChange && that.onEmailsChange(that.getEmails());
+        that.emailsChange && that.emailsChange(that.getEmails());
       }
       event.preventDefault();
     });
@@ -131,7 +133,7 @@
       const value = event.target.value;
       if (Boolean(value)) {
         addEmail(value.trim(), that);
-        that.onEmailsChange && that.onEmailsChange(that.getEmails());
+        that.emailsChange && that.emailsChange(that.getEmails());
       }
       event.target.value = "";
       event.preventDefault();
@@ -139,18 +141,18 @@
 
     emailInput.addEventListener("keyup", function (event) {
       let email = "";
-      switch (event.char) {
-        case NEW_LINE_CHAR:
+      switch (event.keyCode) {
+        case NEW_LINE_KEY:
           email = event.target.value.trim();
           break;
-        case COMMA_CHAR:
+        case COMMA_KEY:
           email = event.target.value.slice(0, -1).trim();
         default:
           break;
       }
       if (Boolean(email)) {
         addEmail(email, that);
-        that.onEmailsChange && that.onEmailsChange(that.getEmails());
+        that.emailsChange && that.emailsChange(that.getEmails());
         event.target.value = "";
       }
     });
@@ -158,12 +160,14 @@
     container.appendChild(emailInput);
     this.appendChild(container);
 
-    // note: при клике на контейнер вне input срабатывает focusout и формируется email. удобная фича :)
+    // note: при клике на ei-email-editor-container, но вне input срабатывает focusout и формируется email. удобная фича :)
     this.addEventListener("click", function (event) {
       emailInput.focus();
     });
 
-    this.setEmails(emails);
+    emails.forEach(function (email) {
+      addEmail(email, that);
+    });
 
     return this;
   };

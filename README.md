@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "mike@miro.com",
       "alexander@miro.com",
     ],
-    onEmailsChange: function (event) {
+    emailsChange: function (event) {
       console.log("emails: " + event.join(", "));
     },
   });
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 ### Arguments
 
 - `emails` `Array` initial collection of emails
-- `onEmailsChange` `Function` called when emails collection is changed
+- `emailsChange` `Function` called when emails collection is changed
 
 ### API
 
